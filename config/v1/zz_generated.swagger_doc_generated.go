@@ -857,6 +857,24 @@ func (InfrastructureStatus) SwaggerDoc() map[string]string {
 	return map_InfrastructureStatus
 }
 
+var map_OpenShiftPlatformSpec = map[string]string{
+	"": "OpenShiftPlatformSpec holds the desired state of the OpenShift infrastructure provider. This only includes fields that can be modified in the cluster.",
+}
+
+func (OpenShiftPlatformSpec) SwaggerDoc() map[string]string {
+	return map_OpenShiftPlatformSpec
+}
+
+var map_OpenShiftPlatformStatus = map[string]string{
+	"":                    "OpenShiftPlatformStatus holds the current status of the OpenShift infrastructure provider.",
+	"apiServerInternalIP": "apiServerInternalIP is an IP address to contact the Kubernetes API server that can be used by components inside the cluster, like kubelets using the infrastructure rather than Kubernetes networking. It is the IP that the Infrastructure.status.apiServerInternalURI points to. It is the IP for a self-hosted load balancer in front of the API servers.",
+	"ingressIP":           "ingressIP is an external IP which routes to the default ingress controller. The IP is a suitable target of a wildcard DNS record used to resolve default route host names.",
+}
+
+func (OpenShiftPlatformStatus) SwaggerDoc() map[string]string {
+	return map_OpenShiftPlatformStatus
+}
+
 var map_OpenStackPlatformSpec = map[string]string{
 	"": "OpenStackPlatformSpec holds the desired state of the OpenStack infrastructure provider. This only includes fields that can be modified in the cluster.",
 }
@@ -898,7 +916,7 @@ func (OvirtPlatformStatus) SwaggerDoc() map[string]string {
 
 var map_PlatformSpec = map[string]string{
 	"":          "PlatformSpec holds the desired state specific to the underlying infrastructure provider of the current cluster. Since these are used at spec-level for the underlying cluster, it is supposed that only one of the spec structs is set.",
-	"type":      "type is the underlying infrastructure provider for the cluster. This value controls whether infrastructure automation such as service load balancers, dynamic volume provisioning, machine creation and deletion, and other integrations are enabled. If None, no infrastructure automation is enabled. Allowed values are \"AWS\", \"Azure\", \"BareMetal\", \"GCP\", \"Libvirt\", \"OpenStack\", \"VSphere\", \"oVirt\", and \"None\". Individual components may not support all platforms, and must handle unrecognized platforms as None if they do not support that platform.",
+	"type":      "type is the underlying infrastructure provider for the cluster. This value controls whether infrastructure automation such as service load balancers, dynamic volume provisioning, machine creation and deletion, and other integrations are enabled. If None, no infrastructure automation is enabled. Allowed values are \"AWS\", \"Azure\", \"BareMetal\", \"GCP\", \"Libvirt\", \"OpenStack\", \"VSphere\", \"oVirt\", \"OpenShift\" and \"None\". Individual components may not support all platforms, and must handle unrecognized platforms as None if they do not support that platform.",
 	"aws":       "AWS contains settings specific to the Amazon Web Services infrastructure provider.",
 	"azure":     "Azure contains settings specific to the Azure infrastructure provider.",
 	"gcp":       "GCP contains settings specific to the Google Cloud Platform infrastructure provider.",
@@ -907,6 +925,7 @@ var map_PlatformSpec = map[string]string{
 	"ovirt":     "Ovirt contains settings specific to the oVirt infrastructure provider.",
 	"vsphere":   "VSphere contains settings specific to the VSphere infrastructure provider.",
 	"ibmcloud":  "IBMCloud contains settings specific to the IBMCloud infrastructure provider.",
+	"openshift": "OpenShift contains settings specific to the OpenShift infrastructure provider.",
 }
 
 func (PlatformSpec) SwaggerDoc() map[string]string {
@@ -924,6 +943,7 @@ var map_PlatformStatus = map[string]string{
 	"ovirt":     "Ovirt contains settings specific to the oVirt infrastructure provider.",
 	"vsphere":   "VSphere contains settings specific to the VSphere infrastructure provider.",
 	"ibmcloud":  "IBMCloud contains settings specific to the IBMCloud infrastructure provider.",
+	"openshift": "OpenShift contains settings specific to the OpenShift infrastructure provider.",
 }
 
 func (PlatformStatus) SwaggerDoc() map[string]string {

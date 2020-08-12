@@ -655,11 +655,7 @@ spec:
                     allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/'
                   type: object
                   additionalProperties:
-                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-                    anyOf:
-                    - type: integer
-                    - type: string
-                    x-kubernetes-int-or-string: true
+                    type: string
                 requests:
                   description: 'Requests describes the minimum amount of compute resources
                     required. If Requests is omitted for a container, it defaults
@@ -667,11 +663,7 @@ spec:
                     value. More info: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/'
                   type: object
                   additionalProperties:
-                    pattern: ^(\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))(([KMGTPE]i)|[numkMGTPE]|([eE](\+|-)?(([0-9]+(\.[0-9]*)?)|(\.[0-9]+))))?$
-                    anyOf:
-                    - type: integer
-                    - type: string
-                    x-kubernetes-int-or-string: true
+                    type: string
             schedule:
               description: 'schedule specifies when to execute the job using standard
                 cronjob syntax: https://wikipedia.org/wiki/Cron. Defaults to `0 0
